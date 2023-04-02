@@ -1,0 +1,27 @@
+.footer-copyright {
+    @apply flex justify-center py-3
+}
+
+.footer-content {
+    @apply font-mono text-xs hover:text-green transition-[color] duration-300 ease-transition
+}
+
+.git-stats {
+    @apply flex justify-center gap-3 font-mono
+}
+
+.git-stats > span {
+    @apply flex items-center
+}
+
+.git-stats > span > span {
+    @apply pl-1 text-xs
+}
+
+.footer-social-link {
+    @apply h-max
+}
+
+.footer-social-icon {
+    @apply w-[20px] hover:text-green transition-[color] duration-200 ease-transition
+}

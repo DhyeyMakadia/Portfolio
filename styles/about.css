@@ -1,0 +1,33 @@
+#about{
+    @apply min-h-screen pt-[80px]
+  }
+  
+  #about .heading {
+    @apply before:content-['01.'];
+  }
+
+  .about-description p{
+    @apply text-md text-slate mb-4 
+  }
+  
+  #about .wrapper{
+    @apply w-[200px] h-[200px] lg:w-[300px] lg:h-[300px] rounded
+  }
+
+  #about .custom-img-border {
+    @apply relative
+  }
+  
+  #about .custom-img-border::after {
+    width: inherit;
+    height: inherit;
+    @apply content-[''] block absolute top-[20px] left-[20px] border border-green rounded z-10 transition-all duration-100 ease-transition
+  }
+  
+  #about .custom-img-border img{
+    @apply absolute w-full h-full object-cover rounded z-20
+  }
+  
+  #about .custom-img-border:hover::after{
+    @apply  top-[15px] left-[15px] transition-all duration-200 ease-transition
+  }

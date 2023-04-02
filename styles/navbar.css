@@ -1,0 +1,67 @@
+.BrandLogo {
+    @apply text-slate hover:text-slate-lightest w-[40px] focus:outline-0 transition-all duration-300
+}
+
+.header {
+    @apply flex justify-between items-center w-full fixed top-0 px-[25px] md:px-[50px] h-[100px] z-[100] transition-all duration-500 ease-transition
+}
+
+.navbar-main {
+    @apply flex justify-between w-full
+}
+
+.logo {
+    @apply transition-[filter] duration-300 ease-transition
+}
+
+.nav-link {
+    @apply font-mono text-slate-light before:text-green before:text-xxs before:pr-1 hover:text-green p-[10px] text-xs hover:transition-colors hover:duration-300 hover:ease-transition
+}
+
+.ham-button {
+    @apply md:hidden flex items-center justify-center w-[40px] h-[40px] bg-transparent z-[9999] focus:outline-0 focus-visible:outline-0
+}
+
+.ham-burger {
+    @apply bg-green relative block w-[30px] h-[2px] before:content-[''] before:bg-inherit before:relative before:block before:top-[-10px] before:w-[20px] before:h-[2px] after:content-[''] after:bg-inherit after:relative after:block after:top-[8px] after:left-[10px] after:w-[20px] after:h-[2px] transition-transform duration-300 ease-transition delay-500
+}
+
+.ham-burger::before {
+    @apply transition-transform duration-500 ease-transition
+}
+
+.ham-burger::after {
+    @apply transition-transform duration-500 ease-transition
+}
+
+.ham-button[data-visible='true']>.ham-burger {
+    @apply -rotate-45 transition-transform duration-300 ease-transition delay-500
+}
+
+.ham-button[data-visible='true']>.ham-burger::before {
+    @apply content-[''] w-[10px] -top-[10px] left-[10px] rotate-90 transition-transform duration-500 ease-transition
+}
+
+.ham-button[data-visible='true']>.ham-burger::after {
+    @apply content-[''] absolute top-[5px] left-[5px] rotate-90 transition-transform duration-500 ease-transition
+}
+
+#mobile-menu {
+    @apply bg-navyBlue-light md:hidden flex items-center justify-between w-[min(75vw,400px)] h-screen fixed top-0 bottom-0 right-0 translate-x-[100vw] transition-transform duration-500 ease-transition shadow-sidebar z-10
+}
+
+#mobile-menu.active {
+    @apply translate-x-[0vw] visible
+}
+
+.sidebar-link-container {
+    @apply flex flex-col items-center justify-center gap-[50px]
+}
+
+.sidebar-link {
+    @apply text-slate-lightest text-lg cursor-pointer hover:text-green transition-colors duration-300 ease-transition before:block before:text-center before:font-mono before:text-green before:text-sm
+}
+
+.blurContent {
+    @apply blur
+}

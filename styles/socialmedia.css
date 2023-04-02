@@ -1,0 +1,32 @@
+.social-media {
+    @apply md:fixed hidden bottom-0 left-[40px] w-fit md:block
+}
+
+.social-link {
+    @apply block w-fit p-2.5
+}
+
+.social-icon {
+    @apply w-[20px] text-slate-light transition-transform duration-300 ease-transition group-hover:text-green group-hover:cursor-pointer group-hover:transition-all group-hover:duration-300 group-hover:ease-transition group-hover:-translate-y-[5px]
+}
+
+.social-line {
+    @apply bg-slate-light w-[1px] h-[100px] m-auto
+}
+
+.mail {
+    @apply md:block hidden fixed bottom-0 right-[40px]
+}
+
+.mail-link {
+    writing-mode: vertical-rl;
+    @apply font-mono block text-slate-light text-xxs w-fit pb-2 transition-all duration-300 ease-transition hover:text-green hover:transition-all hover:duration-300 hover:ease-transition
+}
+
+.mail-link:hover {
+    transform: translateY(-3px);
+}
+
+.mail-line {
+    @apply bg-slate-light w-[1px] h-[100px] m-auto
+}
