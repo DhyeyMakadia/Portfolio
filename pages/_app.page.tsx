@@ -1,7 +1,13 @@
 import "../styles/index.css";
 import type { AppProps } from "next/app";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { MainContextProvider } from '../context/main'
+import { MainContext, MainContextProvider } from "../context/main";
+import Head from "next/head";
+import { Navbar } from "../components/Navbar";
+import { SocialMedia } from "../components/SocialMedia";
+import { Footer } from "../components/Footer";
+import { useRouter } from "next/router";
+import { useContext } from "react";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -12,10 +18,28 @@ const queryClient = new QueryClient({
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  const isAdminPage = router.pathname.includes("admin")
   return (
     <QueryClientProvider client={queryClient}>
       <MainContextProvider>
-        <Component {...pageProps} />
+        <Head>
+          <title>Dhyey Makadia</title>
+          <link rel="icon" href="/icon.svg" />
+        </Head>
+        {!isAdminPage && (
+          <>
+            <Navbar />
+            <SocialMedia />
+          </>
+        )}
+        <div id="main-container">
+          <div className="container flex flex-col !min-h-screen">
+            <Component {...pageProps} />
+            <div className="grow"></div>
+            {!isAdminPage && <Footer />}
+          </div>
+        </div>
       </MainContextProvider>
     </QueryClientProvider>
   );

@@ -1,5 +1,5 @@
 .BrandLogo {
-    @apply text-slate hover:text-slate-lightest w-[40px] focus:outline-0 transition-all duration-300
+    @apply text-slate hover:text-slate-lightest w-[55px] focus:outline-0 transition-all duration-300
 }
 
 .header {

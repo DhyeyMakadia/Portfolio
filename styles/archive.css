@@ -1,0 +1,69 @@
+#archive{
+    @apply pt-[200px]
+}
+
+#archive .archive-heading{
+    font-size: clamp(35px, 8vw, 70px);
+    @apply text-slate-lightest font-bold leading-[1.1] font-sans mb-4
+}
+
+#archive .archive-subheading{
+    @apply text-green text-md leading-[1.5] font-mono
+}
+
+#archive .archive-table{
+    @apply w-full my-[100px]
+}
+
+#archive .archive-table thead{
+    @apply h-[46px]
+}
+
+#archive .archive-table th{
+    @apply text-left text-lg p-2.5 whitespace-nowrap
+}
+
+#archive .archive-table th:nth-child(2),
+#archive .archive-table th:nth-child(3){
+    @apply hidden md:table-cell
+}
+
+#archive .archive-table .table-row{
+    @apply min-h-[50px] hover:bg-navyBlue-light
+}
+
+#archive .archive-table .table-row td{
+    @apply p-2.5
+}
+
+#archive .archive-table tbody .year{
+    @apply text-lg text-green font-mono text-md leading-[1.3]
+}
+
+#archive .archive-table tbody .title{
+    @apply text-slate-lightest font-sans text-lg font-bold leading-[1.25]
+}
+
+#archive .archive-table tbody .made-at{
+    @apply hidden md:table-cell text-slate font-sans text-md
+}
+
+#archive .archive-table tbody .build-with{
+    @apply hidden md:table-cell max-w-[400px] pr-2 leading-[1.5] text-xs
+}
+
+#archive .archive-table tbody .build-with ul li{
+    @apply inline-block
+}
+
+#archive .archive-table tbody .build-with ul li > span{
+    @apply mx-[5px]
+}
+
+#archive .archive-table tbody .app-link div{
+    @apply flex items-center h-[inherit]
+}
+
+#archive .archive-table tbody .app-link i{
+    @apply hover:text-green cursor-pointer transition-all duration-300 ease-transition hover:transition-all hover:duration-300 hover:ease-transition
+}

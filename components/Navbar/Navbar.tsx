@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { SideBar } from "../SideBar";
-import { BrandLogo } from "./BrandLogo";
 import { HamBurger } from "./HamBurger";
 import cx from "classnames";
+import { BrandLogo } from "../../utils/icons";
 
 type scrollPosType = {
   previous: number;
@@ -10,42 +9,41 @@ type scrollPosType = {
 };
 
 export const Navbar = () => {
-  const previousScrollPos = useRef(0)
-  const [navbarStyle, setNavbarStyle] = useState<string>('')
+  const previousScrollPos = useRef(0);
+  const [navbarStyle, setNavbarStyle] = useState<string>("");
   const [isNavbarVisible, setIsNavbarVisible] = useState<boolean>(true);
 
   function handleScroll() {
-    let currentScrollPos = window.pageYOffset
-    if (currentScrollPos!== 0) {
-      setNavbarStyle('hanging-navbar')
+    let currentScrollPos = window.pageYOffset;
+    if (currentScrollPos !== 0) {
+      setNavbarStyle("hanging-navbar");
     } else {
-      setNavbarStyle('')
+      setNavbarStyle("");
     }
     if (previousScrollPos.current >= currentScrollPos) {
-      setIsNavbarVisible(true)
+      setIsNavbarVisible(true);
     } else {
-      setIsNavbarVisible(false)
+      setIsNavbarVisible(false);
     }
-    previousScrollPos.current = currentScrollPos
-  };
+    previousScrollPos.current = currentScrollPos;
+  }
 
   useEffect(() => {
-    previousScrollPos.current = window.pageYOffset
-    window.addEventListener('scroll', handleScroll)
+    previousScrollPos.current = window.pageYOffset;
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
-  const navbar = isNavbarVisible ? "!top-0" : "!-top-[100px]"
+  const navbar = isNavbarVisible ? "!top-0" : "!-top-[100px]";
+
   return (
-    <header
-      className={cx("header", navbar, navbarStyle )}
-    >
+    <header className={cx("header", navbar, navbarStyle)}>
       <nav className="navbar-main">
         <div className="logo">
           <a href="/" className="">
-            <BrandLogo />
+            {BrandLogo}
           </a>
         </div>
         <HamBurger />

@@ -7,12 +7,12 @@ import {
   faLinkedinIn,
   faFacebookF,
 } from "@fortawesome/free-brands-svg-icons";
-import { githubForkIcon, githubStarIcon } from "../../utils/constants";
+import { githubForkIcon, githubStarIcon } from "../../utils/icons";
 
 export const Footer = () => {
   return (
     <footer id="footer" className="py-4">
-      <div className="container block md:hidden">
+      <div className="block md:hidden">
         <ul className="flex justify-center gap-4">
           <li>
             <a

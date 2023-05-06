@@ -1,5 +1,5 @@
 #experiences {
-    @apply py-[100px] min-h-fit max-w-[700px] mx-auto
+    @apply py-[100px] min-h-fit max-w-[700px] mx-auto w-[inherit]
 }
 
 #experiences .heading {
@@ -7,7 +7,7 @@
 }
 
 .experience-container {
-    @apply flex flex-col md:flex-row
+    @apply flex flex-col md:flex-row w-[inherit]
 }
 
 .experience-tag-container {

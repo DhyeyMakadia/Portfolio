@@ -1,8 +1,11 @@
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
 export const MainContext = React.createContext<any>(null);
 
 export const MainContextProvider = ({ children }: any) => {
+  const router = useRouter();
+  const isAdminPage = router.pathname.includes("admin")
   const [sidebarVisible, setSidebarVisible] = useState<boolean>(false);
 
   const handleScrollOnMobileSidebar = () => {
@@ -24,6 +27,6 @@ export const MainContextProvider = ({ children }: any) => {
     handleScrollOnMobileSidebar();
   }, [sidebarVisible]);
 
-  const states = { sidebarVisible, setSidebarVisible };
+  const states = { sidebarVisible, setSidebarVisible, isAdminPage };
   return <MainContext.Provider value={states}>{children}</MainContext.Provider>;
 };

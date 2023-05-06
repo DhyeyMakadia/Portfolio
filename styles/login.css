@@ -1,0 +1,96 @@
+.bg-login{
+  background-image: linear-gradient(to bottom right, #0a192f, #233554);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  background-size: cover;
+  color: white;
+  font-family: sans-serif;
+  font-weight: 200;
+  z-index: 1;
+}
+
+.background-shapes {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 4076px;
+  background-size: 100%;
+  animation: 120s infiniteScroll linear infinite;
+  background-repeat: repeat;
+  background-image: url(/assets/images/bg-login-elements.svg);
+}
+
+.login-box {
+  @apply absolute top-[50%] left-[50%] bg-navyBlue-light shadow-form rounded-xl -translate-x-2/4 -translate-y-2/4 p-[40px] w-[400px]
+}
+
+.login-box .user-box {
+  @apply relative mb-[30px]
+}
+
+.login-box .user-box input {
+  @apply w-full py-2.5 text-md text-slate border-0 border-b-[1px] border-b-slate outline-0 bg-transparent 
+}
+
+.login-box .user-box label {
+  @apply absolute top-0 left-0 py-2.5 text-md text-slate duration-500 pointer-events-none
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  @apply text-xxs -top-[20px] left-0 text-slate
+}
+
+.login-box form a {
+  @apply relative inline-block px-5 py-2.5 text-slate font-bold text-md tracking-[4px] uppercase overflow-hidden duration-500 mt-10
+}
+
+.login-box a:hover {
+  @apply text-green bg-navyBlue-lightest font-bold rounded
+}
+
+.login-box a span {
+  @apply absolute block
+}
+
+.login-box a span:nth-child(1) {
+  bottom: 2px;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #64ffda);
+  animation: btn-animation 2s linear infinite;
+}
+
+@keyframes btn-animation {
+  0% {
+    left: -100%;
+  }
+
+  50%,100% {
+    left: 100%;
+  }
+}
+
+@keyframes infiniteScroll {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    -webkit-transform: translate3d(0, -1692px, 0);
+    transform: translate3d(0, -1692px, 0);
+  }
+}
