@@ -19,7 +19,7 @@ const queryClient = new QueryClient({
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const isAdminPage = router.pathname.includes("admin")
+  const isAdminPage = router.pathname.includes("admin");
   return (
     <QueryClientProvider client={queryClient}>
       <MainContextProvider>
@@ -33,13 +33,17 @@ function MyApp({ Component, pageProps }: AppProps) {
             <SocialMedia />
           </>
         )}
-        <div id="main-container">
-          <div className="container flex flex-col !min-h-screen">
-            <Component {...pageProps} />
-            <div className="grow"></div>
-            {!isAdminPage && <Footer />}
+        {isAdminPage ? (
+          <Component {...pageProps} />
+        ) : (
+          <div id="main-container">
+            <div className="container flex flex-col !min-h-screen">
+              <Component {...pageProps} />
+              <div className="grow"></div>
+              <Footer />
+            </div>
           </div>
-        </div>
+        )}
       </MainContextProvider>
     </QueryClientProvider>
   );

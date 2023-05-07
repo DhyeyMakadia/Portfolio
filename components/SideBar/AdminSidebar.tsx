@@ -3,7 +3,7 @@ import React, { useState } from "react";
 export const AdminSidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   return (
-    <div>
+    <div className="w-full">
       {!isSidebarOpen && (
         <button
           data-drawer-target="default-sidebar"
