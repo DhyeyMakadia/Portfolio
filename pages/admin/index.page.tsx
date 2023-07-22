@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
-import { AdminSidebar } from "../../components/SideBar";
+import React from "react";
 import { BreadCrumbs } from "../../components/BreadCrumbs";
+import { Typography } from "@mui/material";
 
-const AdminHome = () => {
+const AdminDashboard = () => {
   return (
-    <div className="min-w-screen min-h-screen m-0 h-0 pl-[256px]">
-      <AdminSidebar />
-      <BreadCrumbs/>
-    </div>
+    <>
+      <BreadCrumbs />
+      <Typography paragraph>This is my Dashboard Page</Typography>
+    </>
   );
 };
 
-export default AdminHome;
+export default AdminDashboard;

@@ -1,205 +1,135 @@
-import React, { useState } from "react";
+import * as React from "react";
+import {
+  Box,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
+import { Dashboard, FolderOpen, Person } from "@mui/icons-material";
+import { AdminSidebarToggleBtn } from "../../utils/icons";
+import Link from "next/link";
+import { Routes } from "../../utils/routes";
+import cx from "classnames";
+import { AdminSidebarLinks } from "../../utils/constants";
+import { useRouter } from "next/router";
 
-export const AdminSidebar = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
-  return (
-    <div className="w-full">
-      {!isSidebarOpen && (
-        <button
-          data-drawer-target="default-sidebar"
-          data-drawer-toggle="default-sidebar"
-          aria-controls="default-sidebar"
-          type="button"
-          className="inline-flex items-center p-2 mt-2 ml-3 text-sm text-slate rounded-lg sm:hidden hover:bg-navyBlue-lightest"
-          onClick={() => setIsSidebarOpen(true)}
-        >
-          <span className="sr-only">Open sidebar</span>
-          <svg
-            className="w-6 h-6 text-green"
-            aria-hidden="true"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              fill-rule="evenodd"
-              d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
-            ></path>
-          </svg>
-        </button>
-      )}
+const drawerWidth = 240;
 
-      <aside
-        id="default-sidebar"
-        className={`${
-          !isSidebarOpen && "-translate-x-full"
-        } fixed top-0 left-0 z-40 w-64 h-screen transition-transform sm:translate-x-0`}
-        aria-label="Sidebar"
-      >
-        <div className="h-full px-3 py-4 overflow-y-auto bg-navyBlue-light">
-          <button className="block sm:hidden" onClick={() => setIsSidebarOpen(false)}>close</button>
-          <ul className="space-y-2 font-medium mt-[100px]">
-            <li>
-              <a
-                href="#"
-                className="flex items-center p-2 group text-slate rounded-lg hover:bg-navyBlue-lightest"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="w-6 h-6 text-slate transition duration-75 group-hover:text-slate-lightest"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
-                  <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
-                </svg>
-                <span className="ml-3 text-slate-light group-hover:text-slate-lightest">
-                  Dashboard
-                </span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="flex items-center p-2 text-slate rounded-lg group hover:bg-navyBlue-lightest"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="flex-shrink-0 w-6 h-6 text-slate transition duration-75 group-hover:text-slate-lightest"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
-                </svg>
-                <span className="flex-1 ml-3 whitespace-nowrap text-slate-light group-hover:text-slate-lightest">
-                  Kanban
-                </span>
+export function AdminSidebar({ children }: any) {
+  const router = useRouter();
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
+  const sidebarIcon = (route: string) => {
+    switch (route) {
+      case Routes.AdminDashboard:
+        return (
+          <Dashboard className="text-slate group-hover:text-slate-lightest" />
+        );
+      case Routes.AdminProfile:
+        return (
+          <Person className="text-slate group-hover:text-slate-lightest" />
+        );
+      case Routes.AdminProjects:
+        return (
+          <FolderOpen className="text-slate group-hover:text-slate-lightest" />
+        );
+      default:
+        return <></>;
+    }
+  };
+
+  const drawer = React.useCallback(() => {
+    return (
+      <List>
+        {AdminSidebarLinks.map((item, index) => (
+          <Link href={item.route} key={index}>
+            <ListItem
+              className={cx(
+                "p-0 group",
+                item.route === router.pathname && "selected"
+              )}
+            >
+              <ListItemButton>
+                <ListItemIcon>{sidebarIcon(item.route)}</ListItemIcon>
+                <ListItemText primary={item.label} />
                 <span className="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-green bg-navyBlue-lightest rounded-full">
-                  Pro
-                </span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="flex items-center p-2 text-slate rounded-lg group hover:bg-navyBlue-lightest"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="flex-shrink-0 w-6 h-6 text-slate transition duration-75  group-hover:text-slate-lightest"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z"></path>
-                  <path d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path>
-                </svg>
-                <span className="flex-1 ml-3 whitespace-nowrap text-slate-light group-hover:text-slate-lightest">
-                  Inbox
-                </span>
-                <span className="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-green bg-navyBlue-lightest rounded-full">
                   3
                 </span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="flex items-center p-2 text-slate group rounded-lg hover:bg-navyBlue-lightest"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="flex-shrink-0 w-6 h-6 text-slate transition duration-75  group-hover:text-slate-lightest"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span className="flex-1 ml-3 whitespace-nowrap text-slate-light group-hover:text-slate-lightest">
-                  Users
-                </span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="flex items-center p-2 text-slate rounded-lg group hover:bg-navyBlue-lightest"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="flex-shrink-0 w-6 h-6 text-slate transition duration-75  group-hover:text-slate-lightest"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span className="flex-1 ml-3 whitespace-nowrap text-slate-light group-hover:text-slate-lightest">
-                  Products
-                </span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="flex items-center p-2 text-slate rounded-lg group hover:bg-navyBlue-lightest"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="flex-shrink-0 w-6 h-6 text-slate transition duration-75  group-hover:text-slate-lightest"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span className="flex-1 ml-3 whitespace-nowrap text-slate-light group-hover:text-slate-lightest">
-                  Sign In
-                </span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="flex items-center p-2 text-slate rounded-lg group hover:bg-navyBlue-lightest"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="flex-shrink-0 w-6 h-6 text-slate transition duration-75 group-hover:text-slate-lightest"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span className="flex-1 ml-3 whitespace-nowrap text-slate-light group-hover:text-slate-lightest">
-                  Sign Up
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </aside>
-    </div>
+              </ListItemButton>
+            </ListItem>
+          </Link>
+        ))}
+      </List>
+    );
+  }, [router.pathname]);
+
+  return (
+    <Box sx={{ display: "flex" }}>
+      <div className="mr-2 sm:hidden">
+        <button
+          type="button"
+          className="inline-flex items-center p-2 mt-2 ml-3 text-sm text-slate rounded-lg sm:hidden hover:bg-navyBlue-lightest"
+          onClick={handleDrawerToggle}
+        >
+          <span className="sr-only">Open sidebar</span>
+          {AdminSidebarToggleBtn}
+        </button>
+      </div>
+      <Box
+        component="nav"
+        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+        aria-label="mailbox folders"
+      >
+        <Drawer
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true,
+          }}
+          sx={{
+            display: { xs: "block", sm: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
+          }}
+          className="admin-sidebar"
+        >
+          {drawer()}
+        </Drawer>
+        <Drawer
+          variant="permanent"
+          sx={{
+            display: { xs: "none", sm: "block" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
+          }}
+          open
+          className="admin-sidebar"
+        >
+          {drawer()}
+        </Drawer>
+      </Box>
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          p: 3,
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+        }}
+      >
+        {children}
+      </Box>
+    </Box>
   );
-};
+}

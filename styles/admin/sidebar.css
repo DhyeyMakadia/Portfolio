@@ -1,0 +1,14 @@
+.admin-sidebar .MuiPaper-root.MuiPaper-elevation {
+    @apply text-slate bg-navyBlue-light shadow-sidebar
+}
+
+.admin-sidebar .MuiPaper-root.MuiPaper-elevation ul li.MuiListItem-root {
+    @apply p-0 hover:bg-navyBlue-lightest hover:text-slate-lightest
+}
+
+.admin-sidebar .MuiPaper-root.MuiPaper-elevation ul li.MuiListItem-root.selected {
+    @apply text-green
+}
+.admin-sidebar .MuiPaper-root.MuiPaper-elevation ul li.MuiListItem-root.selected .MuiListItemIcon-root .MuiSvgIcon-root {
+    @apply text-green
+}

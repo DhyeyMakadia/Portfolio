@@ -1,11 +1,24 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
 
 export const MainContext = React.createContext<any>(null);
 
+const theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+    },
+  },
+});
+
 export const MainContextProvider = ({ children }: any) => {
   const router = useRouter();
-  const isAdminPage = router.pathname.includes("admin")
+  const isAdminPage = router.pathname.includes("admin");
   const [sidebarVisible, setSidebarVisible] = useState<boolean>(false);
 
   const handleScrollOnMobileSidebar = () => {
@@ -28,5 +41,9 @@ export const MainContextProvider = ({ children }: any) => {
   }, [sidebarVisible]);
 
   const states = { sidebarVisible, setSidebarVisible, isAdminPage };
-  return <MainContext.Provider value={states}>{children}</MainContext.Provider>;
+  return (
+    <MainContext.Provider value={states}>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </MainContext.Provider>
+  );
 };

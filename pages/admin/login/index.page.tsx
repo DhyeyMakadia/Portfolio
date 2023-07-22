@@ -6,7 +6,7 @@ const Login = () => {
       <div className="bg-login z-10">
         <div className="background-shapes"></div>
       </div>
-      <div className="h-screen flex flex-col justify-center items-center z-20">
+      <div className="relative h-screen flex flex-col justify-center items-center z-20">
         <div className="login-box">
         <div className="font-mono text-xl text-center mb-10">Login</div>
           <form>

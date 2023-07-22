@@ -1,13 +1,14 @@
 import "../styles/index.css";
 import type { AppProps } from "next/app";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { MainContext, MainContextProvider } from "../context/main";
+import { MainContextProvider } from "../context/main";
 import Head from "next/head";
 import { Navbar } from "../components/Navbar";
 import { SocialMedia } from "../components/SocialMedia";
 import { Footer } from "../components/Footer";
 import { useRouter } from "next/router";
-import { useContext } from "react";
+import { AdminRoutes } from "../utils/constants";
+import { AdminPages } from "../HOC/AdminPages";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -19,7 +20,7 @@ const queryClient = new QueryClient({
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const isAdminPage = router.pathname.includes("admin");
+  const isAdminPage = AdminRoutes.includes(router.pathname);
   return (
     <QueryClientProvider client={queryClient}>
       <MainContextProvider>
@@ -27,22 +28,22 @@ function MyApp({ Component, pageProps }: AppProps) {
           <title>Dhyey Makadia</title>
           <link rel="icon" href="/icon.svg" />
         </Head>
-        {!isAdminPage && (
+        {isAdminPage ? (
+          <AdminPages>
+            <Component {...pageProps} />
+          </AdminPages>
+        ) : (
           <>
             <Navbar />
             <SocialMedia />
-          </>
-        )}
-        {isAdminPage ? (
-          <Component {...pageProps} />
-        ) : (
-          <div id="main-container">
-            <div className="container flex flex-col !min-h-screen">
-              <Component {...pageProps} />
-              <div className="grow"></div>
-              <Footer />
+            <div id="main-container">
+              <div className="container flex flex-col !min-h-screen">
+                <Component {...pageProps} />
+                <div className="grow"></div>
+                <Footer />
+              </div>
             </div>
-          </div>
+          </>
         )}
       </MainContextProvider>
     </QueryClientProvider>
