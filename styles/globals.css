@@ -54,6 +54,10 @@ body {
     -o-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
+  a {
+    @apply cursor-pointer
+  }
+
   ::-webkit-scrollbar {
     @apply w-1.5 h-[3px]
   }

@@ -24,6 +24,7 @@ export const Experience = () => {
           <button className="experience-tag" onClick={()=>setSelectedTag(5)}>Delta</button>
           <div id="name-highlight" data-target="3"></div>
         </div>
+        {/* TODO: Just change the variable data to display according to the selection */}
         <div className="experience-content-container">
           <div id="content6" className="experience-content">
             <h3>

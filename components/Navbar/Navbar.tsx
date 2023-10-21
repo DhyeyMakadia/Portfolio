@@ -1,7 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { HamBurger } from "./HamBurger";
 import cx from "classnames";
 import { BrandLogo } from "../../utils/icons";
+import { MainContext } from "../../context/main";
+import Link from "next/link";
+import { Routes } from "../../utils/routes";
 
 type scrollPosType = {
   previous: number;
@@ -12,6 +15,7 @@ export const Navbar = () => {
   const previousScrollPos = useRef(0);
   const [navbarStyle, setNavbarStyle] = useState<string>("");
   const [isNavbarVisible, setIsNavbarVisible] = useState<boolean>(true);
+  const { handleNavClick } = useContext(MainContext);
 
   function handleScroll() {
     let currentScrollPos = window.pageYOffset;
@@ -42,16 +46,14 @@ export const Navbar = () => {
     <header className={cx("header", navbar, navbarStyle)}>
       <nav className="navbar-main">
         <div className="logo">
-          <a href="/" className="">
-            {BrandLogo}
-          </a>
+          <Link href={Routes.Home}>{BrandLogo}</Link>
         </div>
         <HamBurger />
 
         <ul className="md:flex flex-row items-center hidden">
           <li className="">
             <a
-              href="/"
+              onClick={() => handleNavClick("about")}
               className="before:content-['01.'] nav-link leading-[1.3]"
             >
               About
@@ -59,7 +61,7 @@ export const Navbar = () => {
           </li>
           <li className="">
             <a
-              href="/"
+              onClick={() => handleNavClick("experiences")}
               className="before:content-['02.'] nav-link leading-[1.3]"
             >
               Experiences
@@ -67,7 +69,7 @@ export const Navbar = () => {
           </li>
           <li className="">
             <a
-              href="/"
+              onClick={() => handleNavClick("work")}
               className="before:content-['03.'] nav-link leading-[1.3]"
             >
               Work
@@ -75,7 +77,7 @@ export const Navbar = () => {
           </li>
           <li className="">
             <a
-              href="/"
+              onClick={() => handleNavClick("contact")}
               className="before:content-['04.'] nav-link leading-[1.3]"
             >
               Contact

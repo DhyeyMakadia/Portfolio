@@ -18,7 +18,7 @@ export const HamBurger = () => {
       >
         <div className="ham-burger"></div>
       </button>
-      <SideBar isOpen={sidebarVisible} />
+      <SideBar />
     </>
   );
 };

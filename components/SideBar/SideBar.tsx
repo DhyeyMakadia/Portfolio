@@ -1,38 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import cx from "classnames";
+import { MainContext } from "../../context/main";
 
-type ISideBarProps = {
-  isOpen: boolean;
-};
-
-export const SideBar = (props: ISideBarProps) => {
-  const { isOpen } = props;
+export const SideBar = () => {
+  const { sidebarVisible, handleNavClick } = useContext(MainContext);
 
   return (
-    <aside id="mobile-menu" className={cx(isOpen && "active")}>
+    <aside id="mobile-menu" className={cx(sidebarVisible && "active")}>
       <div className="w-full">
         <div className="sidebar-link-container">
           <a
             className="sidebar-link before:content-['01.']"
-            // onClick={() => handleScroll("about", "mobileView")}
+            onClick={() => handleNavClick("about")}
           >
             About
           </a>
           <a
             className="sidebar-link before:content-['02.']"
-            // onClick={() => handleScroll("experiences", "mobileView")}
+            onClick={() => handleNavClick("experiences")}
           >
             Experiences
           </a>
           <a
             className="sidebar-link before:content-['03.']"
-            // onClick={() => handleScroll("work", "mobileView")}
+            onClick={() => handleNavClick("work")}
           >
             Work
           </a>
           <a
             className="sidebar-link before:content-['04.']"
-            // onClick={() => handleScroll("contact", "mobileView")}
+            onClick={() => handleNavClick("contact")}
           >
             Contact
           </a>

@@ -1,5 +1,5 @@
 export const Routes = {
-    Home: "/admin",
+    Home: "/",
     Archive: "/archive",
     AdminLogin: "/admin/login",
     AdminDashboard: "/admin",

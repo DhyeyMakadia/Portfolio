@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
+import { Routes } from "../../utils/routes";
 
 export const MainContext = React.createContext<any>(null);
 
@@ -20,6 +21,7 @@ export const MainContextProvider = ({ children }: any) => {
   const router = useRouter();
   const isAdminPage = router.pathname.includes("admin");
   const [sidebarVisible, setSidebarVisible] = useState<boolean>(false);
+  const [scrollSectionId, setScrollSectionId] = useState<string>("");
 
   const handleScrollOnMobileSidebar = () => {
     const body = document.querySelector("body");
@@ -40,7 +42,21 @@ export const MainContextProvider = ({ children }: any) => {
     handleScrollOnMobileSidebar();
   }, [sidebarVisible]);
 
-  const states = { sidebarVisible, setSidebarVisible, isAdminPage };
+  const handleNavClick = (section: string) => {
+    if (router.pathname === Routes.Archive) {
+      router.push(Routes.Home);
+    }
+    setScrollSectionId(section);
+  };
+
+  const states = {
+    sidebarVisible,
+    setSidebarVisible,
+    isAdminPage,
+    handleNavClick,
+    scrollSectionId,
+    setScrollSectionId,
+  };
   return (
     <MainContext.Provider value={states}>
       <ThemeProvider theme={theme}>{children}</ThemeProvider>

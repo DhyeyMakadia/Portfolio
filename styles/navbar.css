@@ -19,7 +19,7 @@
 }
 
 .ham-button {
-    @apply md:hidden flex items-center justify-center w-[40px] h-[40px] bg-transparent z-[9999] focus:outline-0 focus-visible:outline-0
+    @apply md:hidden flex items-center justify-center w-[40px] h-[inherit] bg-transparent z-[9999] focus:outline-0 focus-visible:outline-0
 }
 
 .ham-burger {

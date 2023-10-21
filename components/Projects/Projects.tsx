@@ -6,7 +6,8 @@ import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { externalLinkIcon, githubIcon } from "../../utils/icons";
-import RouteLink from "next/link";
+import Link from "next/link";
+import { Routes } from "../../utils/routes";
 library.add(faFolder, faArrowUpRightFromSquare, faGithub);
 
 export const Projects = () => {
@@ -85,9 +86,9 @@ export const Projects = () => {
           Other Noteworthy Projects
         </h2>
         <div className="text-center mb-10">
-          <RouteLink  href="/archive" legacyBehavior>
+          <Link href={Routes.Archive} legacyBehavior>
             <a className="link text-sm !lowercase">view the archive</a>
-          </RouteLink>
+          </Link>
         </div>
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <li className="project">

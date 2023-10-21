@@ -7,6 +7,7 @@ export const Hero = () => {
   const companyLink = "#";
   const companyName = "Tatvasoft";
   const Resume = () => {
+    window.open("https://drive.google.com/file/d/1zEWSLL2iScegkHwC4fc7w-_-Bc3KWTxa/view?usp=sharing", "_blank")
     // window.open("/assets/DhyeyMakadia_Resume.pdf", "_blank");
     null;
   };

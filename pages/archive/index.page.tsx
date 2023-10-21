@@ -87,12 +87,10 @@ export const Archive = () => {
               <ul>
                 {listOfTech.length > 0 &&
                   listOfTech.map((i, index) => (
-                    <>
-                      <li>
-                        {i}
-                        {index <= listOfTech.length - 2 && <span>·</span>}
-                      </li>
-                    </>
+                    <li key={index}>
+                      {i}
+                      {index <= listOfTech.length - 2 && <span>·</span>}
+                    </li>
                   ))}
               </ul>
             </td>
@@ -111,12 +109,10 @@ export const Archive = () => {
               <ul>
                 {listOfTech.length > 0 &&
                   listOfTech.map((i, index) => (
-                    <>
-                      <li>
-                        {i}
-                        {index <= listOfTech.length - 2 && <span>·</span>}
-                      </li>
-                    </>
+                    <li key={index}>
+                      {i}
+                      {index <= listOfTech.length - 2 && <span>·</span>}
+                    </li>
                   ))}
               </ul>
             </td>
@@ -135,12 +131,10 @@ export const Archive = () => {
               <ul>
                 {listOfTech.length > 0 &&
                   listOfTech.map((i, index) => (
-                    <>
-                      <li>
-                        {i}
-                        {index <= listOfTech.length - 2 && <span>·</span>}
-                      </li>
-                    </>
+                    <li key={index}>
+                      {i}
+                      {index <= listOfTech.length - 2 && <span>·</span>}
+                    </li>
                   ))}
               </ul>
             </td>
@@ -159,12 +153,10 @@ export const Archive = () => {
               <ul>
                 {listOfTech.length > 0 &&
                   listOfTech.map((i, index) => (
-                    <>
-                      <li>
-                        {i}
-                        {index <= listOfTech.length - 2 && <span>·</span>}
-                      </li>
-                    </>
+                    <li key={index}>
+                      {i}
+                      {index <= listOfTech.length - 2 && <span>·</span>}
+                    </li>
                   ))}
               </ul>
             </td>
