@@ -9,6 +9,7 @@ import { Footer } from "../components/Footer";
 import { useRouter } from "next/router";
 import { AdminRoutes } from "../utils/constants";
 import { AdminPages } from "../HOC/AdminPages";
+import { Loader } from "../components/Loader";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -34,6 +35,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           </AdminPages>
         ) : (
           <>
+            <Loader />
             <Navbar />
             <SocialMedia />
             <div id="main-container">

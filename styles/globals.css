@@ -39,6 +39,10 @@ body {
   @apply bg-navyBlue text-slate text-md font-sans
 }
 
+html body.show-loader {
+  overflow: hidden !important;
+}
+
 #main-container {
   @apply flex flex-col md:mx-[100px] transition-[filter] duration-300 ease-transition
 }
