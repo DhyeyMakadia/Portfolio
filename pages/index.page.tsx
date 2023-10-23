@@ -32,11 +32,19 @@ const Portfolio = () => {
 
   return (
     <>
-      <Hero />
-      <About />
-      <Experience />
-      <Projects />
-      <Contact />
+      <Navbar />
+      <SocialMedia />
+      <div id="main-container">
+        <div className="container flex flex-col !min-h-screen">
+          <Hero />
+          <About />
+          <Experience />
+          <Projects />
+          <Contact />
+          <div className="grow"></div>
+          <Footer />
+        </div>
+      </div>
     </>
   );
 };
