@@ -8,6 +8,7 @@ import {
   faFacebookF,
 } from "@fortawesome/free-brands-svg-icons";
 import SocialMediaIcon from "./SocialMediaIcon";
+import { ProfileDetails } from "../../utils/data";
 library.add(faInstagram, faGithub, faTwitter, faFacebookF, faLinkedinIn);
 
 export const SocialMedia = () => {
@@ -16,24 +17,24 @@ export const SocialMedia = () => {
       <div className="social-media">
         <ul className="social">
           <SocialMediaIcon
-            avatar={faInstagram}
-            link="https://www.instagram.com/_dhyey_24_/"
+            avatar={faLinkedinIn}
+            link={ProfileDetails.links.LINKEDIN}
           />
           <SocialMediaIcon
             avatar={faGithub}
-            link="https://github.com/DhyeyMakadia"
+            link={ProfileDetails.links.GITHUB}
+          />
+          <SocialMediaIcon
+            avatar={faInstagram}
+            link={ProfileDetails.links.INSTAGRAM}
           />
           <SocialMediaIcon
             avatar={faTwitter}
-            link="https://twitter.com/Dhyey_Makadia"
-          />
-          <SocialMediaIcon
-            avatar={faLinkedinIn}
-            link="https://www.linkedin.com/in/dhyey-makadia"
+            link={ProfileDetails.links.TWITTER}
           />
           <SocialMediaIcon
             avatar={faFacebookF}
-            link="https://www.facebook.com/dhyey.patel.16503"
+            link={ProfileDetails.links.FACEBOOK}
             className="mx-auto"
             avatarClassName="!w-[15px]"
           />
@@ -42,8 +43,8 @@ export const SocialMedia = () => {
       </div>
 
       <div className="mail">
-        <a href="mailto:dj.makadia24@gmail.com" className="mail-link">
-          dj.makadia24@gmail.com
+        <a href={`mailto:${ProfileDetails.personal.EMAIL}`} className="mail-link">
+          {ProfileDetails.personal.EMAIL}
         </a>
         <div className="mail-line"></div>
       </div>

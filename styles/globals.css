@@ -3,40 +3,40 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'DM Sans';
+  font-family: "DM Sans";
   font-weight: 400;
-  src: url('../public/fonts/DM_Sans/DMSans-Regular.ttf') format('opentype');
+  src: url("../public/fonts/DM_Sans/DMSans-Regular.ttf") format("opentype");
 }
 @font-face {
-  font-family: 'DM Sans';
+  font-family: "DM Sans";
   font-weight: 500;
-  src: url('../public/fonts/DM_Sans/DMSans-Medium.ttf') format('opentype');
+  src: url("../public/fonts/DM_Sans/DMSans-Medium.ttf") format("opentype");
 }
 @font-face {
-  font-family: 'DM Sans';
+  font-family: "DM Sans";
   font-weight: 700;
-  src: url('../public/fonts/DM_Sans/DMSans-Bold.ttf') format('opentype');
+  src: url("../public/fonts/DM_Sans/DMSans-Bold.ttf") format("opentype");
 }
 
 @font-face {
-  font-family: 'SF Mono';
+  font-family: "SF Mono";
   font-weight: 400;
-  src: url('../public/fonts/SF_Mono/SFMonoRegular.otf') format('opentype');
+  src: url("../public/fonts/SF_Mono/SFMonoRegular.otf") format("opentype");
 }
 @font-face {
-  font-family: 'SF Mono';
+  font-family: "SF Mono";
   font-weight: 500;
-  src: url('../public/fonts/SF_Mono/SFMonoMedium.otf') format('opentype');
+  src: url("../public/fonts/SF_Mono/SFMonoMedium.otf") format("opentype");
 }
 @font-face {
-  font-family: 'SF Mono';
+  font-family: "SF Mono";
   font-weight: 700;
-  src: url('../public/fonts/SF_Mono/SFMonoBold.otf') format('opentype');
+  src: url("../public/fonts/SF_Mono/SFMonoBold.otf") format("opentype");
 }
 
 html,
 body {
-  @apply bg-navyBlue text-slate text-md font-sans
+  @apply bg-navyBlue text-slate text-md font-sans;
 }
 
 html body.show-loader {
@@ -44,10 +44,10 @@ html body.show-loader {
 }
 
 #main-container {
-  @apply flex flex-col md:mx-[100px] transition-[filter] duration-300 ease-transition
+  @apply flex flex-col md:mx-[100px] transition-[filter] duration-300 ease-transition;
 }
 
-@layer components{
+@layer components {
   input,
   textarea,
   button,
@@ -59,60 +59,60 @@ html body.show-loader {
   }
 
   a {
-    @apply cursor-pointer
+    @apply cursor-pointer;
   }
 
   ::-webkit-scrollbar {
-    @apply w-1.5 h-[3px]
+    @apply w-1.5 h-[3px];
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-navyBlue rounded
+    @apply bg-navyBlue rounded;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-slate-dark rounded
+    @apply bg-slate-dark rounded;
   }
 
   ::selection {
-    @apply bg-navyBlue-lightest text-slate-lightest
+    @apply bg-navyBlue-lightest text-slate-lightest;
   }
 
   ::-moz-selection {
-    @apply bg-navyBlue-lightest text-slate-lightest
+    @apply bg-navyBlue-lightest text-slate-lightest;
   }
-  
+
   .container {
-    @apply px-4 mx-auto sm:max-w-[610px] md:max-w-[720px] lg:max-w-[992px] xl:max-w-[1200px]
+    @apply px-4 mx-auto sm:max-w-[610px] md:max-w-[720px] lg:max-w-[992px] xl:max-w-[1200px];
   }
 
   .btn {
-    @apply bg-transparent text-green rounded border-0 outline outline-[1px] outline-green px-[25px] py-[12px] hover:bg-green-tint transition-none focus:outline focus:outline-[1px] focus:outline-green focus-visible:outline focus-visible:outline-[1px] focus-visible:outline-green focus-within:outline focus-within:outline-[1px] focus-within:outline-green
+    @apply bg-transparent text-green rounded border-0 outline outline-[1px] outline-green px-[25px] py-[12px] hover:bg-green-tint transition-none focus:outline focus:outline-[1px] focus:outline-green focus-visible:outline focus-visible:outline-[1px] focus-visible:outline-green focus-within:outline focus-within:outline-[1px] focus-within:outline-green;
   }
 
   .link {
-    @apply text-green inline-block capitalize decoration-0 hover:text-green after:content-[''] after:bg-green after:block after:w-0 after:h-[1px] after:transition-all after:duration-100 after:ease-transition hover:after:w-full
+    @apply text-green cursor-pointer inline-block capitalize decoration-0 hover:text-green after:content-[''] after:bg-green after:block after:w-0 after:h-[1px] after:transition-all after:duration-100 after:ease-transition hover:after:w-full;
   }
 
-  .heading{
-    font-size: clamp(26px,5vw,28px);
-    @apply text-slate-lightest font-bold w-full flex items-baseline mt-2.5 mb-10 before:content-[''] before:inline-block before:font-mono before:font-normal before:text-green before:text-xl before:mr-2.5 after:content-[''] after:bg-navyBlue-lightest after:relative after:block after:-top-[5px] after:ml-2.5 after:h-[1px] after:grow after:max-w-[400px]
+  .heading {
+    font-size: clamp(26px, 5vw, 28px);
+    @apply text-slate-lightest font-bold w-full flex items-baseline mt-2.5 mb-10 before:content-[''] before:inline-block before:font-mono before:font-normal before:text-green before:text-xl before:mr-2.5 after:content-[''] after:bg-navyBlue-lightest after:relative after:block after:-top-[5px] after:ml-2.5 after:h-[1px] after:grow after:max-w-[400px];
   }
 
   .custom-list-item li {
-    @apply relative pl-[30px] before:content-['▹'] before:absolute before:left-0 before:text-green
+    @apply relative pl-[30px] before:content-['▹'] before:absolute before:left-0 before:text-green;
   }
 
   .cover {
-    @apply relative hover:before:opacity-0 hover:before:transition-opacity hover:before:duration-100 hover:before:ease-transition
+    @apply relative hover:before:opacity-0 hover:before:transition-opacity hover:before:duration-100 hover:before:ease-transition;
   }
 
   .cover::before {
     border-radius: inherit;
-    @apply content-[''] w-[inherit] h-[inherit] absolute top-0 left-0 bg-green opacity-50 z-30 transition-opacity duration-100 ease-transition
+    @apply content-[''] w-[inherit] h-[inherit] absolute top-0 left-0 bg-green opacity-50 z-30 transition-opacity duration-100 ease-transition;
   }
 
   .hanging-navbar {
-    @apply bg-[rgba(10,25,47,0.95)] !h-[80px] shadow-header
+    @apply bg-[rgba(10,25,47,0.95)] !h-[80px] shadow-header;
   }
 }

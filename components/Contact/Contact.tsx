@@ -1,9 +1,10 @@
 import React from "react";
 import { Button } from "../Button";
+import { ProfileDetails } from "../../utils/data";
 
 export const Contact = () => {
   const handleSayHello = () => {
-    window.location.href = "mailto:dj.makadia24@gmail.com";
+    window.location.href = `mailto:${ProfileDetails.personal.EMAIL}`;
   };
   return (
     <section

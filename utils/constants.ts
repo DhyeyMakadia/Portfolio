@@ -9,21 +9,29 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 library.add(faInstagram, faGithub, faTwitter, faFacebookF, faLinkedinIn);
 
-
-export const AdminRoutes = [Routes.AdminLogin, Routes.AdminDashboard, Routes.AdminProfile, Routes.AdminProjects]
-export const AdminProtectedRoutes = [Routes.AdminDashboard, Routes.AdminProfile, Routes.AdminProjects]
+export const AdminRoutes = [
+  Routes.AdminLogin,
+  Routes.AdminDashboard,
+  Routes.AdminProfile,
+  Routes.AdminProjects,
+];
+export const AdminProtectedRoutes = [
+  Routes.AdminDashboard,
+  Routes.AdminProfile,
+  Routes.AdminProjects,
+];
 
 export const AdminSidebarLinks = [
   {
     label: "Dashboard",
-    route: Routes.AdminDashboard
+    route: Routes.AdminDashboard,
   },
   {
     label: "Profile",
-    route: Routes.AdminProfile
+    route: Routes.AdminProfile,
   },
   {
     label: "Projects",
-    route: Routes.AdminProjects
+    route: Routes.AdminProjects,
   },
-]
+];

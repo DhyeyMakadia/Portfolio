@@ -6,11 +6,6 @@ import { MainContext } from "../../context/main";
 import Link from "next/link";
 import { Routes } from "../../utils/routes";
 
-type scrollPosType = {
-  previous: number;
-  current: number;
-};
-
 export const Navbar = () => {
   const previousScrollPos = useRef(0);
   const [navbarStyle, setNavbarStyle] = useState<string>("");
@@ -52,36 +47,36 @@ export const Navbar = () => {
 
         <ul className="md:flex flex-row items-center hidden">
           <li className="">
-            <a
+            <button
               onClick={() => handleNavClick("about")}
               className="before:content-['01.'] nav-link leading-[1.3]"
             >
               About
-            </a>
+            </button>
           </li>
           <li className="">
-            <a
+            <button
               onClick={() => handleNavClick("experiences")}
               className="before:content-['02.'] nav-link leading-[1.3]"
             >
               Experiences
-            </a>
+            </button>
           </li>
           <li className="">
-            <a
+            <button
               onClick={() => handleNavClick("work")}
               className="before:content-['03.'] nav-link leading-[1.3]"
             >
               Work
-            </a>
+            </button>
           </li>
           <li className="">
-            <a
+            <button
               onClick={() => handleNavClick("contact")}
               className="before:content-['04.'] nav-link leading-[1.3]"
             >
               Contact
-            </a>
+            </button>
           </li>
         </ul>
       </nav>

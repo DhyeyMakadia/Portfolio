@@ -1,108 +1,112 @@
-#work{
-    @apply pt-[80px]
+#work {
+  @apply pt-[80px];
 }
-  
-#work .heading::before{
-    @apply content-['03.']
+
+#work .heading::before {
+  @apply content-['03.'];
 }
 
 .project {
-    @apply list-item bg-navyBlue-light rounded transition-all duration-200 ease-transition
+  @apply list-item bg-navyBlue-light rounded transition-all duration-200 ease-transition;
 }
 
 .project:hover {
-    transform: translateY(-7px);
-    @apply cursor-pointer transition-all duration-200 ease-transition
+  transform: translateY(-7px);
+  @apply cursor-pointer transition-all duration-200 ease-transition;
 }
 
 .project-inner {
-    @apply px-7 py-8 flex flex-col justify-between h-full
+  @apply px-7 py-8 flex flex-col justify-between h-full;
 }
 
 .project-top {
-    @apply flex flex-row justify-between items-center mb-7
+  @apply flex flex-row justify-between items-center mb-7;
 }
 
 .project .folder svg {
-    @apply text-green w-[40px]
+  @apply text-green w-[40px];
 }
 
 .project-links {
-    @apply flex flex-row items-center justify-between
+  @apply flex flex-row items-center justify-between;
 }
 
 .project-links a {
-    @apply px-1.5 py-1
+  @apply px-1.5 py-1;
 }
 
 .project-links a svg {
-    @apply text-slate-light
+  @apply text-slate-light;
 }
 
 .project-links a:hover svg {
-    @apply text-green
+  @apply text-green;
 }
 
 .project-title {
-    @apply text-slate-lightest text-xxl font-semibold mb-2.5
+  @apply text-slate-lightest text-xxl font-semibold mb-2.5;
 }
 
 .project:hover .project-title {
-    @apply text-green
+  @apply text-green;
 }
 
 .project-description {
-    @apply text-slate-light text-md
+  @apply text-slate-light text-md;
 }
 
 .project-tech-list {
-    @apply flex font-mono text-xs gap-2 mt-5
+  @apply flex font-mono text-xs gap-2 mt-5;
 }
 
 .featured-project {
-    @apply flex flex-row justify-center mt-10
+  @apply flex flex-row justify-center mt-10;
 }
 
 .featured-project-list-item {
-    @apply grid grid-cols-12 items-center mb-10 lg:mb-20
+  @apply grid grid-cols-12 items-center mb-10 lg:mb-20;
 }
 
 .featured-project-content {
-    @apply col-span-12 lg:col-span-6 row-span-full col-end-13 group-odd:lg:col-end-7 group-even:lg:col-end-12 group-even:lg:text-right flex flex-col justify-center z-50 p-6 lg:p-0
+  @apply col-span-12 lg:col-span-6 row-span-full col-end-13 group-odd:lg:col-end-7 group-even:lg:col-end-12 group-even:lg:text-right group-even:lg:items-end flex flex-col justify-center z-50 p-6 lg:p-0;
 }
 
 .featured-project-title {
-    @apply text-3xl font-semibold text-slate-lightest mb-4
+  @apply text-3xl font-semibold text-slate-lightest mb-4;
 }
 
 .featured-project-title a {
-    @apply hover:text-green transition-all duration-200 ease-transition
+  @apply hover:text-green transition-all duration-200 ease-transition;
 }
 
 .featured-project-description {
-    @apply lg:bg-navyBlue-light rounded-md mb-4
+  @apply lg:bg-navyBlue-light rounded-md mb-4;
 }
 
 .featured-project-description > p {
-    @apply lg:p-5 text-slate-light 
+  @apply lg:p-5 text-slate-light;
 }
 
 .featured-project-techlist {
-    @apply flex flex-row gap-4 font-mono text-sm group-even:lg:justify-end
+  @apply flex flex-row flex-wrap gap-4 font-mono text-sm group-even:lg:justify-end lg:w-[83%];
+}
+
+.featured-project-techlist > li {
+  @apply whitespace-nowrap;
 }
 
 .featured-project-links {
-    @apply flex flex-row gap-4 py-3 items-center group-even:lg:justify-end
+  @apply flex flex-row gap-4 py-3 items-center group-even:lg:justify-end;
 }
 
 .featured-project-links a:hover svg {
-    @apply text-green transition-all duration-100 ease-transition
+  @apply text-green transition-all duration-100 ease-transition;
 }
 
 .featured-project-image {
-    @apply relative col-span-12 lg:col-span-6 row-span-full col-start-1 group-odd:lg:col-start-6 group-even:lg:col-start-1 w-full h-full rounded-md opacity-25 lg:opacity-100
+  @apply relative col-span-12 lg:col-span-6 row-span-full col-start-1 group-odd:lg:col-start-6 group-even:lg:col-start-1 w-full h-full rounded-md opacity-25 lg:opacity-100;
 }
 
 .featured-project-image img {
-    @apply object-cover absolute w-full h-full top-0 right-0 left-0 bottom-0 p-0 m-0 rounded-md
+  @apply object-cover absolute w-full h-full top-0 right-0 left-0 bottom-0 p-0 m-0 rounded-md;
 }
